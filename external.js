@@ -1,71 +1,57 @@
-let playerSelection = prompt("please enter your choice: Rock, Paper, or Scissors.");
-playerSelection = playerSelection.toUpperCase();
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3);
+
     if (choice == 0)
     {
-        return "Rock";
+        return "ROCK";
     }
     else if (choice == 1){
-        return "Paper";
+        return "PAPER";
     }
     else {
-        return "Scissors";
+        return "SCISSORS";
     }
 }
-let computerSelection = getComputerChoice();
-computerSelection = computerSelection.toUpperCase();
-console.log(computerSelection);
-console.log(playerSelection);
-let player = 0 , computer = 0;
-function playRound(playerSelection, computerSelection){
-    if (playerSelection === computerSelection){
+let computerScore = 0;
+let playerScore = 0;
+function playRound(event){
+    const computerSelection = getComputerChoice();
+    const playerSelection = event;
+    const winner = getWinner(playerSelection, computerSelection)
+    document.getElementById("player").innerHTML = `Player chose ${playerSelection}`;
+    document.getElementById("computer").innerHTML = `Computer chose ${computerSelection}`;
+    document.getElementById("winner").innerHTML = `${winner}`;;
+    document.getElementById("final").innerHTML = `Computer:${computerScore} <br> Player:${playerScore}`;
+}
+function getWinner(playerSelection, computerSelection){
+    if (playerSelection == computerSelection){
         return "Tie";
     }
-    else if (computerSelection == "PAPER" && playerSelection == "ROCK") 
-    {
+    else if (computerSelection == "PAPER" && playerSelection == "ROCK") {
+        computerScore++;
         return "You lose! Rock beats Paper";
-        computer = computer + 1;
     }
-    else if (computerSelection == "ROCK" && playerSelection == "PAPER"){
+    else if (computerSelection == "ROCK" && playerSelection == "PAPER"){ 
+        playerScore++;
         return "You Won! Rock beats Paper";
-        player = player + 1;
     }
-    else if (computerSelection == "PAPER" && playerSelection == "SCISSORS") 
-    {
+    else if (computerSelection == "PAPER" && playerSelection == "SCISSORS"){
+        playerScore++;
         return "You Won! Scissors beats Paper";
-        player = player + 1;
     }
     else if (computerSelection == "SCISSORS" && playerSelection == "PAPER"){
+        computerScore++;
         return "You lose! Scissors beats Paper";
-        computer = computer + 1;
     }
-    else if (computerSelection == "SCISSORS" && playerSelection == "ROCK") 
-    {
+    else if (computerSelection == "SCISSORS" && playerSelection == "ROCK") {
+        playerScore++;
         return "You Won! Rock beats Scissors";
-        player = player + 1;
     }
     else if (computerSelection == "ROCK" && playerSelection == "SCISSORS"){
+        computerScore++;
         return "You lose! Rock beats Scissors";
-        computer = computer + 1;
     }
     else {
         return "Incorrect input";
     }
 }
-function game(){
-    for (let i = 0; i < 5; i++){
-        playRound(playerSelection, computerSelection);
-    }
-}
-if (computer < player){
-    return "You Won! congrates";
-}
-else if (computer > player){
-    return "Sorry, You lose";
-}
-else {
-    return "Tie";
-}
-
-//document.write(playRound(playerSelection, computerSelection));

@@ -1,0 +1,50 @@
+body{
+    background-image: url("images/rock-paper-scissors.jpg");
+    background-size: 100%;
+}
+.buttons{
+    margin-top: 70px;
+    margin-left: 325px;
+
+}
+#Rock{
+    padding: 50px;
+    margin-right: 10px;
+    margin-left: 80px;
+    background-size: 120%;
+    background-image: url("images/rock.jpg");
+    font-size: 25px;
+    font-weight: 800;
+    font-family:cursive;
+}
+#Paper{
+    padding: 50px;
+    margin-right: 10px;
+    background-size: 75%;
+    background-image: url("images/paper.jpg");
+    font-size: 25px;
+    font-weight: 800;
+    color: black;
+    font-family:cursive;
+}
+#Scissors{
+    padding: 50px;
+    background-size: 75%;
+    background-image: url("images/scissors.jpg");
+    font-size: 25px;
+    font-weight: 800;
+    color:mediumblue;
+    font-family:cursive;
+}
+.result{
+    margin-top:75px;
+    text-align: center;
+    color: azure;
+    font-family:cursive;
+    font-weight: bold;
+}
+.final{
+    color:dodgerblue;
+    font-weight: bold;
+    font-family:cursive;
+}
